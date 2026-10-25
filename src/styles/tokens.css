@@ -1,0 +1,79 @@
+/* X Account Insight 设计令牌：暖白/米白基底 + 深橙强调 + 深色模式 */
+
+:root {
+  --bg: #faf6f0;
+  --bg-elevated: #ffffff;
+  --bg-subtle: #f3ede4;
+  --bg-hover: #efe8dd;
+  --bg-input: #ffffff;
+
+  --text: #221d17;
+  --text-2: #6b635a;
+  --text-3: #a39a8e;
+
+  --accent: #c14b1d;
+  --accent-strong: #a83c12;
+  --accent-soft: #f7e5d8;
+  --accent-text: #a83c12;
+
+  --success: #2e7d4f;
+  --success-soft: #e2efe6;
+  --warning: #b07a12;
+  --warning-soft: #f6ecd6;
+  --danger: #b3382c;
+  --danger-soft: #f7e2de;
+  --info: #3a6ea5;
+  --info-soft: #e3ecf5;
+
+  --border: #e6dfd3;
+  --border-strong: #d7cdbd;
+
+  --shadow-sm: 0 1px 2px rgba(34, 29, 23, 0.04), 0 1px 3px rgba(34, 29, 23, 0.05);
+  --shadow-md: 0 6px 16px rgba(34, 29, 23, 0.07), 0 2px 6px rgba(34, 29, 23, 0.05);
+  --shadow-lg: 0 16px 40px rgba(34, 29, 23, 0.12);
+
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 16px;
+
+  --font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'PingFang SC',
+    'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+  --mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+
+  --topbar-h: 56px;
+  --sidebar-w: 216px;
+  --content-max: 1200px;
+}
+
+[data-theme='dark'] {
+  --bg: #17130f;
+  --bg-elevated: #201b15;
+  --bg-subtle: #2a241c;
+  --bg-hover: #332c22;
+  --bg-input: #241e17;
+
+  --text: #f1eae1;
+  --text-2: #b5aa9b;
+  --text-3: #7f766a;
+
+  --accent: #e0703a;
+  --accent-strong: #ea8349;
+  --accent-soft: #3a281c;
+  --accent-text: #ea8349;
+
+  --success: #63b383;
+  --success-soft: #1f3327;
+  --warning: #d4a24c;
+  --warning-soft: #332a17;
+  --danger: #d46a5e;
+  --danger-soft: #38201c;
+  --info: #7fa8d6;
+  --info-soft: #1d2b3c;
+
+  --border: #322b22;
+  --border-strong: #453c30;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 6px 16px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.5);
+}

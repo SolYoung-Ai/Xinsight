@@ -1,0 +1,115 @@
+/* 内容表现页 */
+.rankList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.rankItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 10px;
+  border: none;
+  background: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: background-color 0.14s ease;
+}
+.rankItem:hover {
+  background: var(--bg-subtle);
+}
+.rankNo {
+  width: 24px;
+  height: 24px;
+  flex: none;
+  border-radius: 8px;
+  background: var(--bg-subtle);
+  color: var(--text-2);
+  font-size: 12.5px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rankNo1 {
+  composes: rankNo;
+  background: var(--accent-soft);
+  color: var(--accent-text);
+}
+.rankText {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13px;
+  color: var(--text);
+}
+.rankDate {
+  font-size: 12px;
+  color: var(--text-3);
+  white-space: nowrap;
+}
+.rankVal {
+  font-size: 13px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  min-width: 56px;
+  text-align: right;
+  white-space: nowrap;
+}
+.cellText {
+  max-width: 380px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+@media (max-width: 720px) {
+  .cellText {
+    max-width: 180px;
+  }
+}
+.vsCard {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-subtle);
+}
+.vsValue {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.vsNote {
+  margin-top: 12px;
+  font-size: 12.5px;
+  color: var(--text-3);
+  line-height: 1.6;
+}
+.postCompare {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.compareText {
+  font-size: 13.5px;
+  line-height: 1.7;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.detailItem {
+  background: var(--bg-subtle);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+}

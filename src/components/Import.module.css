@@ -1,0 +1,57 @@
+/* 导入区样式 */
+.dropzone {
+  border: 1.5px dashed var(--border-strong);
+  border-radius: var(--radius-lg);
+  background: var(--bg-elevated);
+  padding: 26px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.16s ease, background-color 0.16s ease, transform 0.16s ease;
+}
+.dropzone:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.dropzoneActive {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  transform: scale(1.01);
+}
+.dropIcon {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: var(--accent-soft);
+  color: var(--accent-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dropTitle {
+  font-size: 15px;
+  font-weight: 650;
+  margin-top: 2px;
+}
+.dropDesc {
+  font-size: 12.5px;
+  color: var(--text-2);
+  line-height: 1.6;
+  max-width: 340px;
+}
+.dropBtn {
+  margin-top: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent-text);
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  padding: 4px 16px;
+  background: var(--bg-elevated);
+}
+.spin {
+  animation: xai-spin 0.9s linear infinite;
+}
