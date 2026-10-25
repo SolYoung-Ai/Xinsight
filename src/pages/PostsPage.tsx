@@ -54,9 +54,16 @@ export function PostsPage() {
   const hasBook = useMemo(() => postsInRange.some((p) => p.bookmarks !== null), [postsInRange]);
   const hasReply = useMemo(() => postsInRange.some((p) => p.replies !== null), [postsInRange]);
 
+  /** 不含回复的互动量 = 点赞+转发+引用+收藏（与互动量同口径，仅剔除回复） */
+  const nonReplyEng = (p: ContentPost): number | null => {
+    const parts = [p.likes, p.reposts, p.quotes, p.bookmarks].filter((v): v is number => v !== null);
+    return parts.length === 0 ? null : parts.reduce((a, b) => a + b, 0);
+  };
+
   const sorts: SortDef[] = [
     { key: 'impressions', label: '曝光量', get: (p) => p.impressions, unavailable: !hasImp },
     { key: 'engagements', label: '互动量', get: (p) => p.computedEngagements, unavailable: !hasEng },
+    { key: 'engNoReply', label: '互动量(不含回复)', get: (p) => nonReplyEng(p), unavailable: !hasEng },
     { key: 'engagementRate', label: '互动率', get: (p) => p.computedEngagementRate, unavailable: !hasEng || !hasImp },
     { key: 'likes', label: '点赞量', get: (p) => p.likes, unavailable: !hasLike },
     { key: 'bookmarks', label: '收藏量', get: (p) => p.bookmarks, unavailable: !hasBook },
@@ -225,6 +232,11 @@ export function PostsPage() {
                       <th className="num" style={{ textAlign: 'right' }}>转发</th>
                       {hasBook ? <th className="num" style={{ textAlign: 'right' }}>收藏</th> : null}
                       {hasEng ? <th className="num" style={{ textAlign: 'right' }}>互动量</th> : null}
+                      {hasEng ? (
+                        <th className="num" style={{ textAlign: 'right' }} title="点赞+转发+引用+收藏，不含回复">
+                          互动量(不含回复)
+                        </th>
+                      ) : null}
                       {hasEng && hasImp ? <th className="num" style={{ textAlign: 'right' }}>互动率</th> : null}
                       <th style={{ width: 44 }}></th>
                     </tr>
@@ -244,6 +256,11 @@ export function PostsPage() {
                           <td className="num" style={{ textAlign: 'right' }}>{fmtCompact(p.reposts)}</td>
                           {hasBook ? <td className="num" style={{ textAlign: 'right' }}>{fmtCompact(p.bookmarks)}</td> : null}
                           {hasEng ? <td className="num" style={{ textAlign: 'right' }}>{fmtCompact(p.computedEngagements)}</td> : null}
+                          {hasEng ? (
+                            <td className="num" style={{ textAlign: 'right' }} title="点赞+转发+引用+收藏，不含回复">
+                              {fmtCompact(nonReplyEng(p))}
+                            </td>
+                          ) : null}
                           {hasEng && hasImp ? (
                             <td className="num" style={{ textAlign: 'right' }}>{p.computedEngagementRate !== null ? fmtPercent(p.computedEngagementRate, 1) : '—'}</td>
                           ) : null}
@@ -386,6 +403,7 @@ export function PostsPage() {
                 ['引用', detail.quotes],
                 ['收藏', detail.bookmarks],
                 ['互动量（计算）', detail.computedEngagements],
+                ['其中不含回复', nonReplyEng(detail)],
                 ['互动率', detail.computedEngagementRate !== null ? fmtPercent(detail.computedEngagementRate, 2) : null],
                 ['主页访问', detail.profileVisits],
                 ['新增关注', detail.follows],
