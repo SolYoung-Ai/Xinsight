@@ -113,6 +113,7 @@ textarea {
 /* 数字表格右对齐等 */
 .num {
   font-variant-numeric: tabular-nums;
+  white-space: nowrap;
 }
 
 /* —— 状态色文本 —— */
