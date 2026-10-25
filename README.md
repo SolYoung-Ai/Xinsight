@@ -41,7 +41,8 @@ npm run preview      # 本地预览构建产物
 
 ### 当前部署状态（已验证上线）
 
-- 自定义域名 **x.insight.solyoung.top** 已配置（DNS CNAME → `solyoung-ai.github.io`），站点通过 **gh-pages 分支**（`build_type: legacy`）部署，HTTPS 证书由 GitHub 自动签发。
+- 自定义域名 **x.insight.solyoung.top** 已配置（DNS CNAME → `solyoung-ai.github.io`），站点通过 **gh-pages 分支**（`build_type: legacy`）部署，HTTPS 证书已由 GitHub 自动签发并强制启用，`https://x.insight.solyoung.top/` 为规范入口。
+- 域名声明通过仓库根部 `public/CNAME`（构建后随 `dist/` 发布）与 Pages API 双重绑定；构建命令会自动保留该文件。
 - 旧路径 `solyoung-ai.github.io/x-account-insight/` 与旧仓库名 `x-account-insight` 已随仓库重命名为 `Xinsight` 自动 301/404 过渡，规范入口为自定义域名。
 - 部署流程：`npm run build` → 将 `dist/` 提交到 `gh-pages` 分支 → 仓库 **Settings → Pages** 源选择该分支（已配置）。
 

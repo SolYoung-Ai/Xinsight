@@ -35,11 +35,6 @@ export function ImportPage() {
   return (
     <div className={styles.page}>
       <div className={styles.hero}>
-        <div className={styles.brandMark}>
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden>
-            <path d="M4 6h4l2.5 3.5L13 6h4l-5 6.5L17 19h-4l-2.5-3.5L8 19H4l5-6.5L4 6Z" fill="currentColor" />
-          </svg>
-        </div>
         <h1>X Account Insight</h1>
         <p className={styles.tagline}>X 账号运营数据分析 · 真实数据 · 透明计算 · 可解释建议</p>
         <p className={styles.intro}>

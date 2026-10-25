@@ -52,11 +52,6 @@ export function AppShell() {
     <div className={styles.app}>
       <header className={styles.topbar}>
         <div className={styles.brand}>
-          <div className={styles.brandMark}>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
-              <path d="M4 6h4l2.5 3.5L13 6h4l-5 6.5L17 19h-4l-2.5-3.5L8 19H4l5-6.5L4 6Z" fill="currentColor" />
-            </svg>
-          </div>
           <div>
             <div className={styles.brandName}>X Account Insight</div>
             <div className={styles.brandSub}>X 账号运营数据分析</div>
@@ -103,6 +98,17 @@ export function AppShell() {
           {dataset ? <Outlet /> : <Outlet />}
         </main>
       </div>
+
+      <footer className={styles.footer}>
+        <a
+          href="https://solyoung.top"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.footerLink}
+        >
+          由 @SolYoung 构建
+        </a>
+      </footer>
 
       {dataset ? (
         <nav className={styles.bottomNav}>
