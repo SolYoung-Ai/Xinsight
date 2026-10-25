@@ -39,11 +39,22 @@ npm run preview      # 本地预览构建产物
 
 仓库：`SolYoung-Ai/x-account-insight`，站点地址：<https://solyoung-ai.github.io/x-account-insight/>
 
-推送 `main` 分支后，仓库内置的 GitHub Actions 工作流（`.github/workflows/deploy.yml`）会自动执行：`npm ci` → 类型检查 → 测试 → 构建 → 上传 Pages 产物并部署。无需手动运行任何命令。
+### 当前部署状态（已验证上线）
 
-首次启用需在仓库 **Settings → Pages** 中把 **Build and deployment / Source** 设为 **GitHub Actions**（推送前可先设置，也可推送后设置）。
+- 站点已通过 **gh-pages 分支**（`build_type: legacy`）部署并验证可访问（首页与资源均返回 200）。
+- 部署流程：`npm run build` → 将 `dist/` 提交到 `gh-pages` 分支 → 仓库 **Settings → Pages** 源选择该分支（已配置）。
 
-Vite 已配置 `base: './'`，构建产物使用相对路径：既支持上述子路径部署，也支持后续绑定自定义域名（无需改代码，只需在仓库 Settings → Pages → Custom domain 配置）。
+### 自动部署（GitHub Actions，推荐）
+
+仓库内置工作流 `.github/workflows/deploy.yml`：推送 `main` 后自动执行 `npm ci` → 类型检查 → 测试 → 构建 → 部署。启用方式：
+
+1. 给推送用 Personal Access Token 增加 **workflow** 权限（或安装 gh CLI 重新登录授权）。
+2. 重新提交 `git add .github/workflows/deploy.yml && git commit -m "ci: enable actions deployment" && git push`。
+3. 在仓库 **Settings → Pages** 将 **Build and deployment / Source** 改为 **GitHub Actions**，此后以 Actions 为准。
+
+> 说明：因当前 PAT 无 workflow 权限，GitHub 会拒绝推送含 `.github/workflows/` 的提交；源码已推送至 `main`，工作流文件保留在本地仓库（未被提交）。授权后按上述步骤即可启用。
+
+Vite 已配置 `base: './'`，构建产物使用相对路径：既支持子路径部署，也支持后续绑定自定义域名（无需改代码，只需在仓库 Settings → Pages → Custom domain 配置）。
 
 ## 数据导入说明
 
