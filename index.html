@@ -7,7 +7,13 @@
     <title>X Account Insight — X 账号数据体检</title>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:#faf6f0;color:#4a423a;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Segoe UI',sans-serif">
+        <div style="width:28px;height:28px;border:3px solid #eadfce;border-top-color:#c14b1d;border-radius:50%;animation:xai-boot-spin .8s linear infinite"></div>
+        <div style="font-size:13px;letter-spacing:.02em">X Account Insight 正在加载…</div>
+        <style>@keyframes xai-boot-spin{to{transform:rotate(360deg)}}</style>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

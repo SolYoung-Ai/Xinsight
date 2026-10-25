@@ -188,6 +188,9 @@
   box-shadow: var(--shadow-lg);
   width: 100%;
   max-width: 640px;
+  max-height: min(720px, calc(100vh - 88px));
+  display: flex;
+  flex-direction: column;
   animation: xai-fade-in 0.2s ease both;
 }
 .modalWide { max-width: 860px; }
@@ -198,6 +201,7 @@
   gap: 12px;
   padding: 16px 20px;
   border-bottom: 1px solid var(--border);
+  flex: none;
 }
 .modalTitle { font-size: 16px; font-weight: 650; }
 .modalClose {
@@ -210,13 +214,20 @@
   display: inline-flex;
 }
 .modalClose:hover { background: var(--bg-hover); color: var(--text); }
-.modalBody { padding: 18px 20px; }
+.modalBody {
+  padding: 18px 20px;
+  overflow-y: auto;
+  min-height: 0;
+  flex: 1;
+  overscroll-behavior: contain;
+}
 .modalFoot {
   padding: 14px 20px;
   border-top: 1px solid var(--border);
   display: flex;
   justify-content: flex-end;
   gap: 10px;
+  flex: none;
 }
 
 .select {
